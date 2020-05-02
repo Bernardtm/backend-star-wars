@@ -1,0 +1,29 @@
+# Application properties file in yaml format
+server:
+  servlet:
+    # defines url prefix
+    context-path: /planets
+  # defines port to run
+  port: 8080
+spring:
+  main:
+    # desables spring logo on console
+    banner-mode: 'off'
+    
+    
+### MongoDB
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/planets 
+
+    
+
+# Cache
+  cache:
+    type: redis
+  redis:
+    host: localhost
+    port: 6379
+      
+
+      

@@ -1,4 +1,8 @@
+<details>
+<summary>
 # Desafio Técnico - Dev. Back-End
+
+</summary>
 
 ## Instruções gerais
 
@@ -29,3 +33,5 @@ MongoDB, Cassandra, DynamoDB, Datomic E lembre-se!
 ## Um bom software é um software bem testado. 
 
 ### May the force be with you!
+
+</details>

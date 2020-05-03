@@ -28,6 +28,6 @@ MongoDB, Cassandra, DynamoDB, Datomic E lembre-se!
 
 ## Um bom software é um software bem testado. 
 
-### <span style="color:red">May the force be with you!</span>
+### May the force be with you!
 
 </details>

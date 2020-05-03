@@ -13,6 +13,18 @@ services:
 #      - redis
 
   postgres:
+    container_name: postgres
+    image: postgres:9.6-alpine
+    ports:
+      - "5432:5432"
+    networks:
+      - app-network
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: docker
+      POSTGRES_DB: events
+
+  mongodb:
     container_name: mongodb
     image: mongo
     ports:

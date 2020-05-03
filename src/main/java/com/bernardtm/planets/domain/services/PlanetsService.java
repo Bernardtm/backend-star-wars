@@ -1,5 +1,6 @@
 package com.bernardtm.planets.domain.services;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -15,24 +16,24 @@ public class PlanetsService {
 	@Autowired
 	private PlanetsRepository repository;
 	
-	public Planet addPlanet(Planet planet) {
-		return repository.save(planet);
-	}
-
-	public List<Planet> getAllPlanets() {
-		return repository.findAll();
-	}
-
-	public Planet getPlanetByName(String planetName) {
-		return null;
-	}
-
-	public Planet getPlanetById(String planetId) {
-		Optional<Planet> planet = repository.findById(planetId);
-		return planet.get();
-	}
-
-	public void deletePlanet(String planetId) {
-		repository.deleteById(planetId);		
+	public List<String> validaAddPlanet(Planet planet) {
+		List<String> messages = new ArrayList<String>();
+		
+		if (planet.getName() == null) {
+			messages.add("Name should not be null.");
+		} else {
+			Optional<Planet> planetFound = repository.findByName(planet.getName());
+			if (planetFound.isPresent()) {
+				messages.add("Planet with this name already exist.");
+			}
+		}
+		if (planet.getClimate() == null) {
+			messages.add("Climate should not be null.");
+		}
+		if (planet.getTerrain() == null) {
+			messages.add("Terrain should not be null.");
+		}
+		
+		return messages;
 	}
 }

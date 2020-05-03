@@ -2,7 +2,7 @@
 server:
   servlet:
     # defines url prefix
-    context-path: /octo-events
+    context-path: /planets-api
   # defines port to run
   port: 8080
 spring:
@@ -35,3 +35,8 @@ spring:
   redis:
     host: localhost
     port: 6379
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/planets 
+
+      

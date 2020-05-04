@@ -1,3 +1,9 @@
+Desenvolvido com Java 14
+
+TODO - coisas que podem melhorar
+- Swagger
+- mais tipos de testes
+
 <details>
 <summary> Desafio Técnico - Dev. Back-End </summary>
 

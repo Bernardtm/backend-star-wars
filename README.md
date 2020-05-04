@@ -1,4 +1,6 @@
 Desenvolvido com Java 14
+A https://swapi.co/ não está mais disponível, utilizei a https://swapi.dev/,
+para que seja feita a consulta nesta api, o planeta deve ser salvo com a id correspondente a existente na api.
 
 TODO - coisas que podem melhorar
 - Swagger

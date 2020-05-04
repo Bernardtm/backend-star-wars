@@ -8,27 +8,7 @@ server:
 spring:
   main:
     # desables spring logo on console
-    banner-mode: 'off'
-    
-  datasource:
-## default connection pool
-    hikari:
-      connection-timeout: 20000
-      maximum-pool-size: 5
-### PostgreSQL
-    url: jdbc:postgresql://localhost:5432/postgres
-    username: postgres
-    password: docker
-
-    
-##drop n create table again, good for testing, comment this in production
-  jpa:
-    database-platform: org.hibernate.dialect.PostgreSQL9Dialect
-    properties:
-      hibernate.temp.use_jdbc_metadata_defaults: false 
-    hibernate:
-      ddl-auto: update
-    
+    banner-mode: 'off'  
 
 # Cache
   cache:
@@ -36,8 +16,11 @@ spring:
   redis:
     host: localhost
     port: 6379
+# MongoDB 
   data:
     mongodb:
-      uri: mongodb://localhost:27017/planets 
+      uri: mongodb://localhost:27017/planets
+      
+swapi-url: https://swapi.dev/api/
 
       

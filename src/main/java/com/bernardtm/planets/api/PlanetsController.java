@@ -47,7 +47,7 @@ public class PlanetsController {
 		}
 		
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/id/{id}")
-				        .buildAndExpand(repository.save(planet).getId()).toUri();
+				        .buildAndExpand(service.addPlanet(planet).getId()).toUri();
 		return ResponseEntity.created(uri).build();
 	}
 	

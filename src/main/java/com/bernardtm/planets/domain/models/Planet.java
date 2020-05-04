@@ -3,8 +3,6 @@ package com.bernardtm.planets.domain.models;
 
 import java.io.Serializable;
 
-import javax.validation.constraints.NotNull;
-
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -14,7 +12,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 @Document
-@JsonPropertyOrder({ "id", "name", "climate", "terrain" })
+@JsonPropertyOrder({ "id", "name", "climate", "terrain", "appearance" })
 public class Planet implements Serializable {
 	
 	private static final long serialVersionUID = 5167026764007864122L;
@@ -23,17 +21,16 @@ public class Planet implements Serializable {
 	private String id;
 	
 	@Indexed(unique = true)
-    @NotNull(message = "Name should not be null")
 	@JsonProperty(required = true)
 	private String name;
 	
-	@NotNull(message = "Climate should not be null")
 	@JsonProperty(required = true)
 	private String climate;
 	
-	@NotNull(message = "Terrain should not be null")
 	@JsonProperty(required = true)
 	private String terrain;
+	
+	private String appearance;
 
 	public String getId() {
 		return id;
@@ -65,6 +62,14 @@ public class Planet implements Serializable {
 
 	public void setTerrain(String terrain) {
 		this.terrain = terrain;
+	}
+
+	public String getAppearance() {
+		return appearance;
+	}
+
+	public void setAppearance(String appearance) {
+		this.appearance = appearance;
 	}
 
 }

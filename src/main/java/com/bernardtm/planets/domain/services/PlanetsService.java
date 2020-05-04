@@ -4,17 +4,23 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.bernardtm.planets.domain.httpclients.HttpClientSwapi;
 import com.bernardtm.planets.domain.models.Planet;
 import com.bernardtm.planets.domain.repositories.PlanetsRepository;
 
 @Service
 public class PlanetsService {
 	
-	@Autowired
 	private PlanetsRepository repository;
+	private HttpClientSwapi swapi;
+
+	public PlanetsService (PlanetsRepository repository, HttpClientSwapi swapi) {
+		this.repository = repository;
+		this.swapi = swapi;
+	}
+	
 	
 	public List<String> validaAddPlanet(Planet planet) {
 		List<String> messages = new ArrayList<String>();
@@ -35,5 +41,11 @@ public class PlanetsService {
 		}
 		
 		return messages;
+	}
+
+	public Planet addPlanet(Planet planet) {
+		planet.setAppearance(swapi.getMovieAppearances(planet.getId()));
+		Planet createdPlanet = repository.save(planet);
+		return createdPlanet;
 	}
 }
